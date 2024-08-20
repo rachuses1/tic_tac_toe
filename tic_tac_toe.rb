@@ -277,7 +277,7 @@ class PlayerTurn
   def player_one()
     board()
     print "Player One's turn: "
-    player_one_choice = gets.chomp
+    player_one_choice = gets.chomp.capitalize!
     
     @turn += 1
     @fill += 1
@@ -289,7 +289,7 @@ class PlayerTurn
     board()
     print "Player Two's turn: "
 
-    player_two_choice = gets.chomp
+    player_two_choice = gets.chomp.capitalize!
     update_player_two(player_two_choice)
     @turn = 0
     @fill += 1
