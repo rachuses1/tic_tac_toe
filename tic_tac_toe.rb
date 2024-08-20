@@ -242,6 +242,7 @@ def win()
     A1 == "X " && B2 == "X " && C3 == "X " ||
     C1 == "X " && B2 == "X " && A3 == "X "
 
+    board()
     abort("Player One Wins")
     
   end
@@ -259,7 +260,14 @@ def win()
     A1 == "O " && B2 == "O " && C3 == "O " ||
     C1 == "O " && B2 == "O " && A3 == "O "
 
+    board()
     abort("Player Two Wins")
+  end
+
+  # Tie
+  if @fill == 9
+    board()
+    abort("It's a tie!")
   end
 end
 
@@ -277,11 +285,11 @@ class PlayerTurn
   def player_one()
     board()
     print "Player One's turn: "
+
     player_one_choice = gets.chomp.capitalize!
-    
+    update_player_one(player_one_choice)
     @turn += 1
     @fill += 1
-    update_player_one(player_one_choice)
     display()
   end
 
